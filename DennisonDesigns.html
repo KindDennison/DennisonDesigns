@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dennison Designs | Personalised 3D Printing and Custom Parts</title>
+  <meta name="description" content="Personalised 3D prints, practical replacement parts and prototypes, made to order by Jacob Dennison. Send an idea, sketch or photo and get a quote.">
+  <meta name="theme-color" content="#121b28">
+
+  <!-- TODO: once your domain is live, add: <link rel="canonical" href="https://YOURDOMAIN.co.uk/"> -->
+  <!-- TODO: once your domain is live, add: <meta property="og:image" content="https://YOURDOMAIN.co.uk/images/share.jpg"> (the 1200x630 image is already in images/) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dennison Designs | Personalised 3D Printing">
+  <meta property="og:description" content="Personalised prints, practical parts and prototypes, made to order.">
+  <meta property="og:locale" content="en_GB">
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800&family=Lily+Script+One&family=Orbitron:wght@600;800&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Dennison Designs",
+    "description": "Personalised 3D prints, practical parts and prototypes, made to order.",
+    "email": "hello@dennisondesigns.co.uk",
+    "founder": { "@type": "Person", "name": "Jacob Dennison" },
+    "sameAs": ["https://www.instagram.com/KingDennison"]
+  }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --wrap: 1120px;
+      --gutter: clamp(16px, 4vw, 32px);
+      --bg: #121b28;            /* matches the logo background */
+      --panel: #182335;
+      --panel-2: #1d2b42;
+      --ink: #070d18;           /* darkest navy: dark text on bright buttons, deep sections */
+      --text: #e8f0fa;
+      --text-2: #aebdd1;
+      --muted: #8a9bb2;
+      --line: #2a3a54;
+      --cyan: #2fd8f0;
+      --blue: #2b7bf0;
+      --orange: #f58a1f;
+      --orange-dark: #d96f0c;
+      --accent: var(--orange);
+      --accent-dark: var(--orange-dark);
+      --glow: var(--orange);
+      --display: "Exo 2", "Arial Black", Arial, sans-serif;
+      --brand: "Orbitron", "Exo 2", Arial, sans-serif;
+      --body: "Public Sans", Arial, Helvetica, sans-serif;
+      --script: "Lily Script One", "Lobster", "Brush Script MT", cursive;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { margin: 0; -webkit-text-size-adjust: 100%; font-family: var(--body); font-size: clamp(16px, .3vw + 15px, 18px); line-height: 1.6; color: var(--text); background: var(--bg); }
+    img, svg { max-width: 100%; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; border-radius: 4px; }
+
+    .wrap { width: min(var(--wrap), calc(100% - 2 * var(--gutter))); margin-inline: auto; }
+    .skip { position: absolute; left: 12px; top: -60px; z-index: 50; padding: 10px 14px; background: var(--ink); color: #fff; border-radius: 8px; }
+    .skip:focus { top: 12px; }
+
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(18, 27, 40, .9); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+    .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--brand); font-weight: 800; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.15; }
+    .brand img { display: block; width: 44px; height: 44px; border-radius: 10px; }
+    .brand-text span { display: block; }
+    .brand-text .cyan { color: var(--cyan); font-weight: 600; font-size: .86em; letter-spacing: .14em; }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: 15px; font-weight: 600; }
+    .nav-links a { text-decoration: none; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .button { color: var(--ink); }
+    .menu-toggle { display: none; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 8px; background: transparent; font: inherit; font-weight: 700; color: var(--text); cursor: pointer; }
+
+    /* Buttons */
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 12px 20px; border: 1px solid transparent; border-radius: 8px; background: linear-gradient(135deg, #ffa43a, var(--orange)); color: var(--ink); font: inherit; font-weight: 800; line-height: 1.1; text-decoration: none; cursor: pointer; box-shadow: 0 6px 24px rgba(245, 138, 31, .28); }
+    .button:hover { background: #ffb04f; }
+    .button.ghost { background: transparent; color: var(--cyan); border-color: var(--cyan); box-shadow: none; }
+    .button.ghost:hover { background: var(--cyan); color: var(--ink); }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; padding: clamp(40px, 7vw, 88px) 0 clamp(48px, 7vw, 96px); border-bottom: 1px solid var(--line); }
+    .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(620px 380px at 82% 24%, rgba(43, 123, 240, .3), transparent 70%), radial-gradient(520px 320px at 62% 100%, rgba(245, 138, 31, .16), transparent 70%), linear-gradient(rgba(47, 216, 240, .07) 1px, transparent 1px) 0 0 / 44px 44px, linear-gradient(90deg, rgba(47, 216, 240, .07) 1px, transparent 1px) 0 0 / 44px 44px; -webkit-mask-image: linear-gradient(100deg, transparent 25%, #000 100%); mask-image: linear-gradient(100deg, transparent 25%, #000 100%); pointer-events: none; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    h1 { margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(40px, 6.4vw, 78px); line-height: .98; letter-spacing: -.02em; }
+    .glow-text { background: linear-gradient(90deg, var(--cyan), var(--blue) 55%, var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+    .hero-copy { max-width: 520px; margin: 22px 0 0; font-size: clamp(18px, 2vw, 21px); color: var(--text-2); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    /* Name tag customiser: the memorable bit */
+    .maker { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 0 0 1px rgba(47, 216, 240, .1), 0 28px 70px rgba(0, 0, 0, .5), 0 0 60px rgba(43, 123, 240, .14); }
+    .maker h2 { margin: 0 0 4px; font-family: var(--display); font-size: 22px; line-height: 1.2; }
+    .maker-sub { margin: 0 0 18px; color: var(--muted); font-size: 15px; }
+    .stage { display: grid; place-items: center; min-height: 200px; padding: 20px; border-radius: 10px; background: #223351; margin-bottom: 18px; }
+    .plate { --plate: #1f4fd8; --raised: #ffffff; --fs: 22; position: relative; container-type: inline-size; width: min(100%, 320px); aspect-ratio: 16 / 9; display: grid; place-items: center; border-radius: 14px; background: var(--plate); box-shadow: 0 2px 0 rgba(0, 0, 0, .18), 0 14px 26px rgba(16, 24, 32, .2); overflow: hidden; transition: background-color .25s; }
+    .plate::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .1) 0 1px, transparent 1px 4px); pointer-events: none; }
+    .plate-hole { position: absolute; top: 10%; left: 6%; width: 7%; aspect-ratio: 1; border-radius: 50%; background: #223351; box-shadow: inset 0 1px 2px rgba(0, 0, 0, .35); }
+    .plate[data-shape="sign"] { width: min(100%, 360px); aspect-ratio: 20 / 9; border-radius: 8px 8px 4px 4px; }
+    .plate[data-shape="sign"] .plate-hole { display: none; }
+    .plate[data-shape="keyring"] { width: min(100%, 240px); aspect-ratio: 4 / 3; border-radius: 22px; }
+    .plate-text, .plate-back { grid-area: 1 / 1; max-width: 100%; padding: .12em .1em; font-family: var(--script); font-weight: 400; font-size: calc(var(--fs) * 1cqw); line-height: 1.1; white-space: nowrap; }
+    .plate-text { position: relative;
+      background: repeating-linear-gradient(0deg, var(--raised) 0 3px, color-mix(in srgb, var(--raised) 72%, #000) 3px 4px);
+      -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+    /* Cut-out name: raised lettering sitting on a thick outline that follows the letters */
+    .plate-back { display: none; color: var(--plate); -webkit-text-stroke: .24em var(--plate); paint-order: stroke fill; text-shadow: 0 .03em 0 rgba(0, 0, 0, .25), 0 .09em .14em rgba(0, 0, 0, .3); }
+    .plate[data-shape="cutout"] { width: min(100%, 340px); aspect-ratio: 16 / 8; background: transparent; box-shadow: none; border-radius: 0; overflow: visible; }
+    .plate[data-shape="cutout"]::before, .plate[data-shape="cutout"] .plate-hole { display: none; }
+    .plate[data-shape="cutout"] .plate-back { display: block; }
+
+    .field { display: grid; gap: 6px; margin-bottom: 14px; font-weight: 700; font-size: 15px; }
+    .field input[type="text"], .field select { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font: inherit; font-weight: 400; color: var(--text); background: rgba(255, 255, 255, .06); }
+    select option { background: #182335; color: #e8f0fa; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    fieldset.swatches { margin: 0 0 18px; padding: 0; border: 0; }
+    fieldset.swatches legend { padding: 0; margin-bottom: 8px; font-weight: 700; font-size: 15px; }
+    .swatch-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .swatch { position: relative; }
+    .swatch input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+    .swatch span { display: block; width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--panel); box-shadow: 0 0 0 1px var(--line); background: linear-gradient(135deg, var(--p) 50%, var(--t) 50%); }
+    .swatch input:checked + span { box-shadow: 0 0 0 3px var(--cyan); }
+    .swatch input:focus-visible + span { outline: 3px solid var(--glow); outline-offset: 3px; }
+    .maker .button { width: 100%; }
+
+    /* Sections */
+    .section { padding: clamp(56px, 8vw, 104px) 0; }
+    .section-head { max-width: 640px; margin-bottom: 36px; }
+    h2.title { margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(30px, 4.2vw, 48px); line-height: 1.02; letter-spacing: -.015em; }
+    .section-head p { margin: 14px 0 0; color: var(--muted); }
+
+    /* Services as ruled rows, not cards */
+    .rows { border-top: 2px solid var(--cyan); }
+    .row { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+    .row h3 { margin: 0; font-family: var(--display); font-size: 26px; line-height: 1.1; }
+    .row p { margin: 0; color: var(--text-2); }
+    .row .examples { color: var(--muted); font-size: 15px; }
+
+    /* Gallery */
+    .gallery-section { border-top: 1px solid var(--line); }
+    .gallery { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 0; padding: 0; list-style: none; }
+    .tile { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; background: var(--panel-2); box-shadow: 0 0 0 1px var(--line); }
+    .track { position: absolute; inset: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+    .track::-webkit-scrollbar { display: none; }
+    .slide { flex: 0 0 100%; height: 100%; padding: 0; border: 0; background: none; scroll-snap-align: center; cursor: zoom-in; }
+    .slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .tile .cap { position: absolute; inset: auto 0 0 0; padding: 28px 16px 14px; font-size: 15px; font-weight: 600; color: #fff; background: linear-gradient(0deg, rgba(16, 24, 32, .78), rgba(16, 24, 32, 0)); pointer-events: none; }
+    .tile .count { position: absolute; top: 10px; right: 10px; padding: 3px 10px; border-radius: 999px; background: rgba(16, 24, 32, .72); color: #fff; font-size: 13px; font-weight: 700; pointer-events: none; }
+    .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .92); color: var(--ink); box-shadow: 0 2px 10px rgba(0, 0, 0, .28); cursor: pointer; }
+    .nav-btn:hover { background: #fff; }
+    .nav-btn.prev { left: 10px; }
+    .nav-btn.next { right: 10px; }
+    @media (min-width: 560px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+      .gallery .tile:first-child:not(:last-child) { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+    }
+    @media (min-width: 1180px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+    .lightbox { width: min(1100px, 94vw); max-height: 92vh; max-height: 92dvh; padding: 0; border: 0; border-radius: 12px; background: var(--ink); color: #fff; overflow: hidden; }
+    .lightbox::backdrop { background: rgba(10, 16, 22, .82); }
+    .lightbox img { display: block; width: 100%; max-height: calc(92vh - 76px); max-height: calc(92dvh - 76px); object-fit: contain; background: #0a1016; }
+    .lb-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 16px; }
+    .lb-bar p { margin: 0; font-weight: 600; }
+    .lb-actions { display: flex; gap: 8px; }
+    .lb-actions button { min-height: 44px; padding: 0 16px; border: 1px solid rgba(255, 255, 255, .4); border-radius: 8px; background: transparent; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    .lb-actions button:hover { background: rgba(255, 255, 255, .12); }
+
+    /* Helmet sizing */
+    .sizing-section { border-top: 1px solid var(--line); }
+    .sizing { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: start; }
+    .sizer { padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); box-shadow: 0 0 0 1px rgba(47, 216, 240, .08), 0 24px 60px rgba(0, 0, 0, .4); }
+    .mask-stage { display: grid; place-items: center; margin-bottom: 16px; padding: 12px; border-radius: 10px; background: #223351; }
+    .mask-svg { --shell: #1f4fd8; --accent: #ff6a1a; --lens: #5ed1e6; width: 100%; max-width: 340px; max-height: 50vh; height: auto; }
+    .c-shell { fill: var(--shell); } .c-accent { fill: var(--accent); } .c-lens { fill: var(--lens); } .s-accent { stroke: var(--accent); }
+    .mask-fit { transform-origin: 170px 340px; transition: transform .25s ease; }
+    .picks { display: grid; gap: 10px; margin-bottom: 18px; }
+    .pick { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .pick-label { width: 52px; font-size: 15px; font-weight: 700; }
+    .pick .swatch span { width: 34px; height: 34px; background: var(--p); }
+    .shuffle { justify-self: start; min-height: 40px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel-2); font: inherit; font-size: 14px; font-weight: 700; color: var(--text); cursor: pointer; }
+    .shuffle:hover { border-color: var(--cyan); }
+    .sizer .field { margin-bottom: 6px; }
+    .sizer input[type="range"] { width: 100%; min-height: 44px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+    .scale-marks { display: flex; justify-content: space-between; margin: 0 0 16px; font-size: 13px; font-weight: 600; color: var(--muted); }
+    .readout { display: grid; gap: 6px; padding: 18px; margin-bottom: 18px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255, 255, 255, .04); }
+    .measure { font-family: var(--display); font-weight: 800; font-size: 38px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .band { display: inline-block; width: fit-content; padding: 4px 12px; border-radius: 999px; background: var(--accent); color: var(--ink); font-size: 14px; font-weight: 700; }
+    .readout .calc { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+    .sizer .button { width: 100%; }
+    .hint { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
+    .size-list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .size-list li { position: relative; padding-left: 26px; color: var(--text-2); }
+    .size-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+    .band-table { min-width: 0; }
+    .band-table th, .band-table td { padding: 10px 14px; }
+    .band-table tbody th { font-size: 16px; }
+    .band-table td { color: var(--muted); white-space: nowrap; }
+    .sizing .table-wrap { margin-top: 26px; }
+
+    /* Materials */
+    .materials { background: #0e1622; border-block: 1px solid var(--line); }
+    .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); }
+    table { width: 100%; min-width: 620px; border-collapse: collapse; }
+    th, td { padding: 16px 20px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    tr:last-child th, tr:last-child td { border-bottom: 0; }
+    thead th { font-size: 14px; color: var(--muted); font-weight: 600; background: rgba(255, 255, 255, .04); }
+    tbody th { font-family: var(--display); font-size: 20px; white-space: nowrap; }
+    .note { margin: 18px 0 0; color: var(--muted); }
+
+    /* Process: a real sequence, so numbering is earned */
+    .steps { counter-reset: step; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin: 0; padding: 0; list-style: none; }
+    .steps li { position: relative; padding-top: 58px; }
+    .steps li::before { counter-increment: step; content: counter(step); position: absolute; top: 0; left: 0; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: var(--panel); color: var(--cyan); box-shadow: 0 0 0 2px var(--cyan), 0 0 16px rgba(47, 216, 240, .35); font-family: var(--display); font-weight: 800; }
+    .steps li::after { content: ""; position: absolute; top: 19px; left: 52px; right: -16px; height: 2px; background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px); }
+    .steps li:last-child::after { display: none; }
+    .steps h3 { margin: 0 0 8px; font-family: var(--display); font-size: 22px; line-height: 1.15; }
+    .steps p { margin: 0; color: var(--muted); }
+
+    /* FAQ */
+    .faq { max-width: 760px; border-top: 2px solid var(--cyan); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { display: flex; justify-content: space-between; gap: 16px; padding: 20px 0; font-family: var(--display); font-weight: 600; font-size: 20px; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-weight: 400; font-size: 26px; line-height: 1; }
+    details[open] summary::after { content: "\2212"; }
+    details p { margin: 0 0 20px; max-width: 62ch; color: var(--text-2); }
+
+    /* Contact */
+    .contact { background: radial-gradient(700px 400px at 90% 0%, rgba(43, 123, 240, .22), transparent 70%), var(--ink); color: #fff; }
+    .contact .section-head p, .contact .side p, .form-note { color: rgba(255, 255, 255, .72); }
+    .contact-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: start; }
+    .contact-list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+    .contact-list a { font-weight: 700; text-decoration-color: rgba(255, 255, 255, .4); }
+    form { display: grid; gap: 14px; padding: 24px; border: 1px solid rgba(255, 255, 255, .18); border-radius: 12px; background: rgba(255, 255, 255, .05); }
+    form label { display: grid; gap: 6px; font-weight: 700; font-size: 15px; }
+    form input, form select, form textarea { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid rgba(255, 255, 255, .28); border-radius: 8px; font: inherit; font-weight: 400; color: #fff; background: rgba(255, 255, 255, .08); }
+    form select option { color: var(--text); background: #182335; }
+    form textarea { min-height: 140px; resize: vertical; }
+    form ::placeholder { color: rgba(255, 255, 255, .55); }
+    form .button { width: fit-content; background: var(--glow); color: var(--ink); }
+    form .button:hover { background: #ff8140; }
+    .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+    .status { min-height: 1.5em; margin: 0; font-weight: 600; }
+    .form-note { margin: 0; font-size: 14px; }
+
+    .site-footer { padding: 40px 0; background: var(--bg); border-top: 1px solid var(--line); color: rgba(255, 255, 255, .66); font-size: 14px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-logo { display: block; width: min(220px, 50vw); height: auto; border-radius: 16px; }
+    .footer-text { display: grid; gap: 4px; }
+
+    @media (min-width: 1500px) { :root { --wrap: 1280px; } }
+    @media (max-width: 1020px) {
+      .menu-toggle { display: inline-flex; align-items: center; }
+      .nav { flex-wrap: wrap; padding-block: 12px; }
+      .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-bottom: 8px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; border-top: 1px solid var(--line); }
+      .nav-links .button { margin-top: 8px; text-align: center; }
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .contact-layout, .sizing { grid-template-columns: 1fr; }
+      .maker, .sizer { max-width: 640px; }
+      .row { grid-template-columns: 1fr; gap: 8px; }
+      .steps { grid-template-columns: 1fr 1fr; row-gap: 36px; }
+      .steps li::after { display: none; }
+    }
+    @media (max-width: 520px) {
+      .hero-actions .button, form .button { width: 100%; }
+      .steps, .field-row { grid-template-columns: 1fr; }
+      .maker, .sizer { padding: 16px; }
+      .measure { font-size: 32px; }
+    }
+    @media (max-height: 500px) and (orientation: landscape) { .site-header { position: static; } html { scroll-padding-top: 12px; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .plate, .mask-fit { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Main">
+      <a class="brand" href="#top" aria-label="Dennison Designs, back to top">
+        <img src="images/logo-mark.png" width="44" height="44" alt="">
+        <span class="brand-text"><span>Dennison</span><span class="cyan">Designs</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#services">What I make</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#sizing">Helmet sizing</a>
+        <a href="#materials">Materials</a>
+        <a href="#process">How it works</a>
+        <a href="#faq">Questions</a>
+        <a class="button" href="#contact">Get a quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div id="top"></div>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <h1 id="hero-title">Personalised 3D prints, <span class="glow-text">made to fit.</span></h1>
+          <p class="hero-copy">Name tags, gifts, practical parts and prototypes, printed to order by Jacob Dennison. Send an idea, a sketch or a photo of what needs replacing and get a price before anything is printed.</p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Get a quote</a>
+            <a class="button ghost" href="#services">See what I make</a>
+          </div>
+        </div>
+
+        <div class="maker" id="maker">
+          <h2>Try a design</h2>
+          <p class="maker-sub">Preview a personalised print, then ask for a quote on it.</p>
+
+          <div class="stage">
+            <div class="plate" id="plate" data-shape="cutout" role="img" aria-label="Preview of a cut-out name reading Nova, red and white" aria-live="polite">
+              <span class="plate-hole"></span>
+              <span class="plate-back" id="plate-back" aria-hidden="true">Nova</span>
+              <span class="plate-text" id="plate-text" aria-hidden="true">Nova</span>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <label class="field">Text
+              <input type="text" id="maker-name" value="Nova" maxlength="14" autocomplete="off">
+            </label>
+            <label class="field">Item
+              <select id="maker-shape">
+                <option value="cutout">Cut-out name</option>
+                <option value="tag">Name tag</option>
+                <option value="sign">Desk sign</option>
+                <option value="keyring">Keyring</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="swatches">
+            <legend>Colours (base and lettering)</legend>
+            <div class="swatch-row">
+              <label class="swatch"><input type="radio" name="pair" value="Red and white" data-plate="#cf3a1c" data-text="#ffffff" aria-label="Red and white" checked><span style="--p:#cf3a1c;--t:#ffffff"></span></label>
+              <label class="swatch"><input type="radio" name="pair" value="Blue and white" data-plate="#1f4fd8" data-text="#ffffff" aria-label="Blue and white"><span style="--p:#1f4fd8;--t:#ffffff"></span></label>
+              <label class="swatch"><input type="radio" name="pair" value="Orange and black" data-plate="#ff6a1a" data-text="#101820" aria-label="Orange and black"><span style="--p:#ff6a1a;--t:#101820"></span></label>
+              <label class="swatch"><input type="radio" name="pair" value="Green and white" data-plate="#1e7a5c" data-text="#ffffff" aria-label="Green and white"><span style="--p:#1e7a5c;--t:#ffffff"></span></label>
+              <label class="swatch"><input type="radio" name="pair" value="Black and orange" data-plate="#101820" data-text="#ff6a1a" aria-label="Black and orange"><span style="--p:#101820;--t:#ff6a1a"></span></label>
+              <label class="swatch"><input type="radio" name="pair" value="White and blue" data-plate="#f4f4f0" data-text="#1f4fd8" aria-label="White and blue"><span style="--p:#f4f4f0;--t:#1f4fd8"></span></label>
+            </div>
+          </fieldset>
+
+          <button class="button" type="button" id="maker-send">Ask for a quote on this</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="title" id="services-title">What I make</h2>
+          <p>Small batches and one-offs, checked for fit and finish before they leave.</p>
+        </div>
+        <div class="rows">
+          <article class="row">
+            <h3>Personalised prints</h3>
+            <p>Made for one person, one desk or one occasion. Pick the text, the colours and the shape.</p>
+            <p class="examples">Name tags, desk signs, keyrings, labels, party pieces, gifts</p>
+          </article>
+          <article class="row">
+            <h3>Practical parts</h3>
+            <p>Fixes for the small things that break or never quite fit: a missing clip, a bracket, a spacer.</p>
+            <p class="examples">Cable clips, brackets, storage dividers, spacers, replacement parts</p>
+          </article>
+          <article class="row">
+            <h3>Prototypes</h3>
+            <p>Check the size and fit of an idea in your hands before committing to final manufacture.</p>
+            <p class="examples">Concept models, fit-check parts, enclosures, jigs</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="title" id="gallery-title">Recent prints</h2>
+          <p>A few things I have made. Tap a photo to see it larger. Where a print has more than one photo, use the arrows or swipe.</p>
+        </div>
+        <ul class="gallery">
+          <!-- The first tile is shown larger on wide screens. -->
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/helmet_medium_red_overview_2.jpg" width="1200" height="900" loading="lazy" alt="Medium red 3D printed helmet, overview"></button>
+              <button class="slide" type="button"><img src="images/helmet_medium_red_frontview_2.jpg" width="1200" height="900" loading="lazy" alt="Medium red 3D printed helmet, front view"></button>
+              <button class="slide" type="button"><img src="images/helmet_medium_red_sideview_2.jpg" width="1200" height="900" loading="lazy" alt="Medium red 3D printed helmet, side view"></button>
+              <button class="slide" type="button"><img src="images/helmet_medium_red_frontview.jpg" width="1200" height="900" loading="lazy" alt="Medium red 3D printed helmet, front view"></button>
+              <button class="slide" type="button"><img src="images/helmet_medium_red_sideview.jpg" width="1200" height="900" loading="lazy" alt="Medium red 3D printed helmet, side view"></button>
+            </div>
+            <span class="cap">Custom helmet, medium, red</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/helmet_small_pink.jpg" width="1200" height="900" loading="lazy" alt="Small pink 3D printed helmet, main view"></button>
+              <button class="slide" type="button"><img src="images/helmet_small_pink_frontview.jpg" width="1200" height="900" loading="lazy" alt="Small pink 3D printed helmet, front view"></button>
+              <button class="slide" type="button"><img src="images/helmet_small_pink_sideview.jpg" width="1200" height="900" loading="lazy" alt="Small pink 3D printed helmet, side view"></button>
+            </div>
+            <span class="cap">Custom helmet, small, pink</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/helmet_small_web_design.jpg" width="1200" height="900" loading="lazy" alt="Small 3D printed helmet with a web design, main view"></button>
+              <button class="slide" type="button"><img src="images/helmet_small_web_design_white_frontview.jpg" width="1200" height="900" loading="lazy" alt="Small 3D printed helmet with a web design, white version, front view"></button>
+              <button class="slide" type="button"><img src="images/helmet_small_web_design_white_sideview.jpg" width="1200" height="900" loading="lazy" alt="Small 3D printed helmet with a web design, white version, side view"></button>
+            </div>
+            <span class="cap">Custom helmet, small, web design</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/helmet_medium_fins_frontview.jpg" width="1200" height="900" loading="lazy" alt="Medium 3D printed helmet with fins, front view"></button>
+              <button class="slide" type="button"><img src="images/helmet_medium_fins_sideview.jpg" width="1200" height="900" loading="lazy" alt="Medium 3D printed helmet with fins, side view"></button>
+            </div>
+            <span class="cap">Custom helmet, medium, with fins</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/nova-cutout-name.jpg" width="1200" height="788" loading="lazy" alt="Red and white 3D printed cut-out name sign reading Nova, standing on a granite worktop"></button>
+            </div>
+            <span class="cap">Cut-out name in red and white</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/themed_names_elsie_hellie.jpg" width="1200" height="900" loading="lazy" alt="Themed 3D printed name signs, Elsie and Hellie"></button>
+              <button class="slide" type="button"><img src="images/themed_names_lyla.jpg" width="1200" height="900" loading="lazy" alt="Themed 3D printed name signs, Lyla"></button>
+            </div>
+            <span class="cap">Themed name signs</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/custom_charging_station_isoview.jpg" width="1200" height="900" loading="lazy" alt="Custom 3D printed charging station, angled view"></button>
+              <button class="slide" type="button"><img src="images/custom_charging_station_frontview.jpg" width="1200" height="900" loading="lazy" alt="Custom 3D printed charging station, front view"></button>
+              <button class="slide" type="button"><img src="images/custom_charging_station_sideview.jpg" width="1200" height="900" loading="lazy" alt="Custom 3D printed charging station, side view"></button>
+              <button class="slide" type="button"><img src="images/custom_charging_station_modelview.jpg" width="1200" height="900" loading="lazy" alt="Custom 3D printed charging station, CAD model view"></button>
+            </div>
+            <span class="cap">Custom charging station</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/tablet_stand_unfolded.jpg" width="1200" height="900" loading="lazy" alt="3D printed tablet stand, unfolded"></button>
+              <button class="slide" type="button"><img src="images/tablet_stand_folded.jpg" width="1200" height="900" loading="lazy" alt="3D printed tablet stand, folded"></button>
+            </div>
+            <span class="cap">Folding tablet stand</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/watch_charger_guardian3pro_overview.jpg" width="1200" height="900" loading="lazy" alt="3D printed watch charger stand, overview"></button>
+              <button class="slide" type="button"><img src="images/watch_charger_guardian3pro.jpg" width="1200" height="900" loading="lazy" alt="3D printed watch charger stand, close up"></button>
+            </div>
+            <span class="cap">Watch charger stand</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/aircon_duct_cover_large_overview.jpg" width="1200" height="900" loading="lazy" alt="Large 3D printed air conditioning duct cover, overview"></button>
+              <button class="slide" type="button"><img src="images/aircon_duct_cover_large.jpg" width="1200" height="900" loading="lazy" alt="Large 3D printed air conditioning duct cover, uncovered"></button>
+              <button class="slide" type="button"><img src="images/aircon_duct_cover_large_covered.jpg" width="1200" height="900" loading="lazy" alt="Large 3D printed air conditioning duct cover, covered"></button>
+            </div>
+            <span class="cap">Air conditioning duct cover, large</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/aircon_duct_cover_small_overview.jpg" width="1200" height="900" loading="lazy" alt="Small 3D printed air conditioning duct cover, overview"></button>
+            </div>
+            <span class="cap">Air conditioning duct cover, small</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/aircon_duct_damper_topview_closed.jpg" width="1200" height="900" loading="lazy" alt="3D printed air conditioning duct damper, top view, closed"></button>
+              <button class="slide" type="button"><img src="images/aircon_duct_damper_topview_open.jpg" width="1200" height="900" loading="lazy" alt="3D printed air conditioning duct damper, top view, open"></button>
+            </div>
+            <span class="cap">Air conditioning duct damper</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/aircon_faceplate_serenelife_frontview.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement air conditioner faceplate, front view"></button>
+              <button class="slide" type="button"><img src="images/aircon_faceplate_serenelife_sideview.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement air conditioner faceplate, side view"></button>
+              <button class="slide" type="button"><img src="images/aircon_faceplate_serenelife_topview.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement air conditioner faceplate, top view"></button>
+            </div>
+            <span class="cap">Replacement air conditioner faceplate (SereneLife)</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/aircon_faceplate_silvercrest_frontview.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement air conditioner faceplate, front view"></button>
+              <button class="slide" type="button"><img src="images/aircon_faceplate_silvercrest_frontview_2.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement air conditioner faceplate, front view, second angle"></button>
+            </div>
+            <span class="cap">Replacement air conditioner faceplate (Silvercrest)</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/emergency_override_surround.jpg" width="1200" height="900" loading="lazy" alt="3D printed emergency override surround"></button>
+            </div>
+            <span class="cap">Emergency override surround</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/custom_catflap_door_frontview.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement cat flap door, front view"></button>
+              <button class="slide" type="button"><img src="images/custom_catflap_door_isoview.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement cat flap door, angled view"></button>
+              <button class="slide" type="button"><img src="images/custom_catflap_door_original.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement cat flap door, the original door for comparison"></button>
+            </div>
+            <span class="cap">Replacement cat flap door</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/forklift_replacement_handle_frontview.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement forklift handle, front view"></button>
+              <button class="slide" type="button"><img src="images/forklift_replacement_handle_sideview.jpg" width="1200" height="900" loading="lazy" alt="3D printed replacement forklift handle, side view"></button>
+            </div>
+            <span class="cap">Forklift replacement handle</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/hingepin_barrelnut_frontview.jpg" width="1200" height="900" loading="lazy" alt="3D printed hinge pin and barrel nut, front view"></button>
+              <button class="slide" type="button"><img src="images/hingepin_barrelnut_sideview.jpg" width="1200" height="900" loading="lazy" alt="3D printed hinge pin and barrel nut, side view"></button>
+            </div>
+            <span class="cap">Hinge pin and barrel nut</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/cooks_electric_masher_keyed_adapter_frontview.jpg" width="1200" height="900" loading="lazy" alt="3D printed keyed adapter for an electric masher, front view"></button>
+              <button class="slide" type="button"><img src="images/cooks_electric_masher_keyed_adapter_bottomview.jpg" width="1200" height="900" loading="lazy" alt="3D printed keyed adapter for an electric masher, bottom view"></button>
+            </div>
+            <span class="cap">Keyed adapter for an electric masher</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/echodot_wallmount_overview.jpg" width="1200" height="900" loading="lazy" alt="3D printed Echo Dot wall mount, overview"></button>
+              <button class="slide" type="button"><img src="images/echodot_wallmount.jpg" width="1200" height="900" loading="lazy" alt="3D printed Echo Dot wall mount, close up"></button>
+            </div>
+            <span class="cap">Echo Dot wall mount</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/binroll_wallmount.jpg" width="1200" height="900" loading="lazy" alt="3D printed wall mount for a roll of bin bags"></button>
+            </div>
+            <span class="cap">Bin bag roll wall mount</span>
+          </li>
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/babygate_spacer.jpg" width="1200" height="900" loading="lazy" alt="3D printed baby gate spacer"></button>
+            </div>
+            <span class="cap">Baby gate spacer</span>
+          </li>
+
+          <!--
+            ONE PRODUCT, SEVERAL PHOTOS: put more than one <button class="slide"> inside the same .track.
+            The arrows, the "1 / 3" counter and swiping are added automatically when a tile has 2 or more.
+
+          <li class="tile">
+            <div class="track">
+              <button class="slide" type="button"><img src="images/example-front.jpg" width="1200" height="900" loading="lazy" alt="Front view of the part"></button>
+              <button class="slide" type="button"><img src="images/example-side.jpg" width="1200" height="900" loading="lazy" alt="Side view of the part"></button>
+            </div>
+            <span class="cap">Short caption for the whole product</span>
+          </li>
+          -->
+        </ul>
+      </div>
+    </section>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lb-bar">
+        <p id="lightbox-caption"></p>
+        <div class="lb-actions">
+          <button type="button" id="lb-prev">Previous</button>
+          <button type="button" id="lb-next">Next</button>
+          <button type="button" id="lb-close">Close</button>
+        </div>
+      </div>
+    </dialog>
+
+    <section class="section sizing-section" id="sizing" aria-labelledby="sizing-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="title" id="sizing-title">Custom helmet sizing</h2>
+          <p>Helmets are printed to your measurement rather than a one-size shell, so they sit on the head properly instead of being nearly right. Set your circumference below and ask for a quote at that size.</p>
+        </div>
+
+        <div class="sizing">
+          <div class="sizer">
+            <div class="mask-stage">
+              <svg class="mask-svg" id="mask-svg" viewBox="0 0 340 380" role="img" aria-label="Helmet preview that grows and shrinks with the measurement">
+                <defs>
+                  <path id="shell" d="M170 70C100 70 80 128 82 190C84 245 104 292 126 318C138 334 202 334 214 318C236 292 256 245 258 190C260 128 240 70 170 70Z"/>
+                  <clipPath id="shell-clip"><use href="#shell"/></clipPath>
+                  <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/>
+                  </linearGradient>
+                </defs>
+                <use href="#shell" fill="none" stroke="#8aa0bd" stroke-width="1.5" stroke-dasharray="5 5"/>
+                <g class="mask-fit" id="mask-fit">
+                  <rect class="c-accent" x="124" y="314" width="92" height="26" rx="6"/>
+                  <circle class="c-accent" cx="82" cy="204" r="15"/><circle class="c-accent" cx="258" cy="204" r="15"/>
+                  <use class="c-shell" href="#shell"/>
+                  <use href="#shell" fill="url(#shade)"/>
+                  <g clip-path="url(#shell-clip)" fill="none" class="s-accent" stroke-linecap="round">
+                    <path d="M170 70V140" stroke-width="12"/>
+                    <path d="M96 150Q170 128 244 150" stroke-width="7"/>
+                  </g>
+                  <path class="c-lens s-accent" d="M98 172Q170 152 242 172L238 218Q170 238 102 218Z" stroke-width="6" stroke-linejoin="round"/>
+                  <path d="M112 176Q150 166 176 168L162 214Q135 218 116 212Z" fill="#fff" opacity=".22"/>
+                  <g class="s-accent" stroke-width="4" stroke-linecap="round"><path d="M148 262H192"/><path d="M152 274H188"/><path d="M156 286H184"/></g>
+                </g>
+                <text x="170" y="372" text-anchor="middle" font-size="12" fill="#8aa0bd">Dashed outline: adult medium (22.5&Prime;)</text>
+              </svg>
+            </div>
+
+            <div class="picks" aria-label="Preview colours">
+              <div class="pick" role="radiogroup" aria-labelledby="pk-shell"><span class="pick-label" id="pk-shell">Shell</span><div class="swatch-row" id="swatches-shell"></div></div>
+              <div class="pick" role="radiogroup" aria-labelledby="pk-accent"><span class="pick-label" id="pk-accent">Trim</span><div class="swatch-row" id="swatches-accent"></div></div>
+              <div class="pick" role="radiogroup" aria-labelledby="pk-lens"><span class="pick-label" id="pk-lens">Visor</span><div class="swatch-row" id="swatches-lens"></div></div>
+              <button class="shuffle" type="button" id="shuffle">Surprise me</button>
+            </div>
+
+            <label class="field" for="head-size">Head circumference (inches)
+              <input type="range" id="head-size" min="17.5" max="25.5" step="0.1" value="22.5" aria-describedby="sizing-help">
+            </label>
+            <div class="scale-marks" aria-hidden="true"><span>17.5&Prime;</span><span>21.5&Prime;</span><span>25.5&Prime;</span></div>
+
+            <div class="readout" role="status" aria-live="polite">
+              <span class="measure" id="size-value">22.5&Prime;</span>
+              <span class="band" id="size-band">Adult medium</span>
+              <p class="calc" id="size-calc">Model diameter about 7.16&Prime;, plus clearance for hair and lining.</p>
+            </div>
+
+            <button class="button" type="button" id="size-send">Ask for a quote at this size</button>
+            <p class="hint" id="sizing-help">The picture is illustrative and scales with your measurement. Measured in inches around the widest part of the head, just above the ears. Read the band, but treat it as a guide. The tape measure decides.</p>
+          </div>
+
+          <div>
+            <p>Measure around the widest part of the head, just above the ears and across the mid forehead, keeping the tape level all the way round. Snug, not tight. That number is the one that gets used.</p>
+            <p class="note">If the tape sits over thick hair, add about 0.4&Prime; so the shell still clears. For a child, measure them standing still and slacken the tape back to the same snugness rather than letting them hold their breath.</p>
+
+            <ul class="size-list">
+              <li>Printed in sections and joined, so a bigger shell does not need a bigger printer.</li>
+              <li>The model is scaled to your measurement before printing, not picked off a shelf.</li>
+              <li>Lining and strap fixings can be added. Say so in your enquiry and I will quote for them.</li>
+              <li>If you already own a helmet that fits well, send its internal width and I will work back from that.</li>
+            </ul>
+
+            <div class="table-wrap">
+              <table class="band-table">
+                <caption class="hp">Helmet size bands by head circumference</caption>
+                <thead>
+                  <tr><th scope="col">Size band</th><th scope="col">Circumference</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Toddler</th><td>Up to 18.9&Prime;</td></tr>
+                  <tr><th scope="row">Child small</th><td>19&Prime; to 20.4&Prime;</td></tr>
+                  <tr><th scope="row">Child medium</th><td>20.5&Prime; to 21.4&Prime;</td></tr>
+                  <tr><th scope="row">Adult small</th><td>21.5&Prime; to 22.2&Prime;</td></tr>
+                  <tr><th scope="row">Adult medium</th><td>22.3&Prime; to 23&Prime;</td></tr>
+                  <tr><th scope="row">Adult large</th><td>23.1&Prime; to 24&Prime;</td></tr>
+                  <tr><th scope="row">Adult extra large</th><td>24.1&Prime; and over</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section materials" id="materials" aria-labelledby="materials-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="title" id="materials-title">Which material?</h2>
+          <p>The right choice depends on what the part will live with. Heat, water, sunlight and flexing all matter.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th scope="col">Material</th><th scope="col">Good for</th><th scope="col">Watch out for</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">PLA</th><td>Gifts, signs, name tags and display pieces. Crisp detail and the widest colour choice.</td><td>Softens in high heat, such as a hot car or direct sun behind glass.</td></tr>
+              <tr><th scope="row">PETG</th><td>Workshop parts, brackets and anything that needs to be tougher or see damp and daylight.</td><td>Slightly less crisp fine detail than PLA.</td></tr>
+              <tr><th scope="row">TPU</th><td>Flexible parts such as grips, bumpers, feet and seals.</td><td>Too soft for rigid, load-bearing parts.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Not sure? Tell me where the part will be used and I will recommend one.</p>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="title" id="process-title">How it works</h2>
+          <p>From idea to finished print in four steps.</p>
+        </div>
+        <ol class="steps">
+          <li><h3>Send the idea</h3><p>Size, colour, what it is for, plus any photos, sketches or files.</p></li>
+          <li><h3>Get a quote</h3><p>I check it can be printed, suggest a material and confirm price and timing.</p></li>
+          <li><h3>I print it</h3><p>Printed, checked and tidied up for collection or postage.</p></li>
+          <li><h3>You receive it</h3><p>Something made for the job, the space or the person.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section materials" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="title" id="faq-title">Questions</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>What should I send?</summary>
+            <p>Whatever you have: an STL file, a sketch, a photo of the part, or a short description with measurements. Photos with a ruler or coin next to the part help a lot.</p>
+          </details>
+          <details>
+            <summary>Can you design something from scratch?</summary>
+            <p>Yes. Send a sketch, a photo of the part or the measurements and I will model it. Any design time is included in the quote so there are no surprises.</p>
+          </details>
+          <details>
+            <summary>How do I measure for a helmet?</summary>
+            <p>Run a tape around the widest part of the head, just above the ears and across the mid forehead, then give me that circumference in inches. The sizing section above works the rest out, and a photo of the tape in place is a useful double check.</p>
+          </details>
+          <details>
+            <summary>How much does it cost?</summary>
+            <p>It depends on size, material, print time and any design work. I give you a price before I print anything.</p>
+          </details>
+          <details>
+            <summary>Can I collect, or do you post?</summary>
+            <p>Either. We agree which when I confirm the quote.</p>
+          </details>
+          <details>
+            <summary>Can you match a specific colour?</summary>
+            <p>Tell me the colour you want and I will say what is available.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="title" id="contact-title">Get a quote</h2>
+          <p>Tell me what you would like made, roughly how big it needs to be and when you need it.</p>
+        </div>
+        <div class="contact-layout">
+          <div class="side">
+            <p>Prefer to email? Attach photos, sketches or STL files straight to your message.</p>
+            <ul class="contact-list">
+              <li>Email: <a href="mailto:hello@dennisondesigns.co.uk">hello@dennisondesigns.co.uk</a></li>
+              <li>Instagram: <a href="https://www.instagram.com/KingDennison" rel="noopener">@KingDennison</a></li>
+            </ul>
+          </div>
+
+          <form id="quote-form" novalidate>
+            <div class="field-row">
+              <label>Name
+                <input name="name" type="text" autocomplete="name" required placeholder="Your name">
+              </label>
+              <label>Email
+                <input name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+              </label>
+            </div>
+            <label>What do you need?
+              <select name="project-type" id="project-type">
+                <option>Personalised print</option>
+                <option>Practical part</option>
+                <option>Prototype</option>
+                <option>Helmet</option>
+                <option>Something else</option>
+              </select>
+            </label>
+            <label>Project details
+              <textarea name="message" id="message" required placeholder="Size, colour, quantity, deadline and any useful notes"></textarea>
+            </label>
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <button class="button" type="submit">Send enquiry</button>
+            <p class="status" id="form-status" role="status" aria-live="polite"></p>
+            <p class="form-note">I only use your details to reply to your enquiry.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <img class="footer-logo" src="images/logo.jpg" width="640" height="640" alt="Dennison Designs 3D Printing logo" loading="lazy">
+      <div class="footer-text">
+        <span>&copy; <span id="year"></span> Dennison Designs</span>
+        <span>Personalised prints, practical parts and prototypes.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Config -----------------------------------------------------------
+    // Paste your Formspree (or compatible) endpoint here, e.g. "https://formspree.io/f/abcdwxyz".
+    // While this is empty, the form opens the visitor's email app with everything pre-filled instead.
+    const FORM_ENDPOINT = "";
+    const CONTACT_EMAIL = "hello@dennisondesigns.co.uk";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---- Mobile menu ------------------------------------------------------
+    const toggle = document.querySelector(".menu-toggle");
+    const links = document.getElementById("nav-links");
+    toggle.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    links.addEventListener("click", (e) => {
+      if (e.target.closest("a")) {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // ---- Design preview ---------------------------------------------------
+    const plate = document.getElementById("plate");
+    const plateText = document.getElementById("plate-text");
+    const plateBack = document.getElementById("plate-back");
+    const nameInput = document.getElementById("maker-name");
+    const shapeSelect = document.getElementById("maker-shape");
+    const shapeLabels = { cutout: "cut-out name", tag: "name tag", sign: "desk sign", keyring: "keyring" };
+
+    function currentPair() {
+      return document.querySelector('input[name="pair"]:checked');
+    }
+
+    function updatePreview() {
+      const text = nameInput.value.trim() || "Your text";
+      const pair = currentPair();
+      plateText.textContent = text;
+      plateBack.textContent = text;
+      // Roughly fit the lettering to the plate: long text gets smaller.
+      const size = Math.min(26, 128 / Math.max(text.length, 5));
+      plate.style.setProperty("--fs", size.toFixed(1));
+      plate.style.setProperty("--plate", pair.dataset.plate);
+      plate.style.setProperty("--raised", pair.dataset.text);
+      plate.dataset.shape = shapeSelect.value;
+      plate.setAttribute("aria-label",
+        "Preview of a " + shapeLabels[shapeSelect.value] + " reading " + text + ", " + pair.value.toLowerCase());
+    }
+    nameInput.addEventListener("input", updatePreview);
+    shapeSelect.addEventListener("change", updatePreview);
+    document.querySelectorAll('input[name="pair"]').forEach((r) => r.addEventListener("change", updatePreview));
+    updatePreview();
+
+    document.getElementById("maker-send").addEventListener("click", () => {
+      const text = nameInput.value.trim() || "Your text";
+      const pair = currentPair().value.toLowerCase();
+      document.getElementById("project-type").value = "Personalised print";
+      document.getElementById("message").value =
+        "I would like a " + shapeLabels[shapeSelect.value] + " that says \"" + text + "\" in " + pair + ".\n\nQuantity: \nNeeded by: ";
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => document.querySelector('#quote-form [name="name"]').focus({ preventScroll: true }), 400);
+    });
+
+    // ---- Gallery carousels + lightbox -------------------------------------
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightbox-img");
+    const lbCaption = document.getElementById("lightbox-caption");
+    const lbPrev = document.getElementById("lb-prev");
+    const lbNext = document.getElementById("lb-next");
+    let lbSlides = [], lbIndex = 0, lbTitle = "";
+
+    function showLightbox(i) {
+      lbIndex = (i + lbSlides.length) % lbSlides.length;
+      const img = lbSlides[lbIndex].querySelector("img");
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbCaption.textContent = lbTitle + (lbSlides.length > 1 ? " (" + (lbIndex + 1) + " of " + lbSlides.length + ")" : "");
+    }
+
+    function arrowButton(side, label, path) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "nav-btn " + side;
+      b.setAttribute("aria-label", label);
+      b.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="' + path + '" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      return b;
+    }
+
+    document.querySelectorAll(".gallery .tile").forEach((tile) => {
+      const track = tile.querySelector(".track");
+      const slides = Array.from(track.querySelectorAll(".slide"));
+      const title = tile.querySelector(".cap").textContent;
+      tile.setAttribute("role", "group");
+      tile.setAttribute("aria-label", title);
+
+      if (slides.length > 1) {
+        const count = document.createElement("span");
+        count.className = "count";
+        count.textContent = "1 / " + slides.length;
+        const prev = arrowButton("prev", "Previous photo: " + title, "M15 5l-7 7 7 7");
+        const next = arrowButton("next", "Next photo: " + title, "M9 5l7 7-7 7");
+        const index = () => Math.round(track.scrollLeft / track.clientWidth);
+        const go = (i) => track.scrollTo({ left: ((i + slides.length) % slides.length) * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" });
+        prev.addEventListener("click", () => go(index() - 1));
+        next.addEventListener("click", () => go(index() + 1));
+        track.addEventListener("scroll", () => { count.textContent = (index() + 1) + " / " + slides.length; }, { passive: true });
+        tile.append(prev, next, count);
+      }
+
+      slides.forEach((slide, i) => slide.addEventListener("click", () => {
+        lbSlides = slides;
+        lbTitle = title;
+        lbPrev.hidden = lbNext.hidden = slides.length < 2;
+        showLightbox(i);
+        lightbox.showModal();
+      }));
+    });
+    lbPrev.addEventListener("click", () => showLightbox(lbIndex - 1));
+    lbNext.addEventListener("click", () => showLightbox(lbIndex + 1));
+    document.getElementById("lb-close").addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.close(); });
+    lightbox.addEventListener("keydown", (e) => {
+      if (lbSlides.length < 2) return;
+      if (e.key === "ArrowLeft") showLightbox(lbIndex - 1);
+      if (e.key === "ArrowRight") showLightbox(lbIndex + 1);
+    });
+
+    // ---- Helmet sizing + preview ------------------------------------------
+    const sizeInput = document.getElementById("head-size");
+    const sizeValue = document.getElementById("size-value");
+    const sizeBand = document.getElementById("size-band");
+    const sizeCalc = document.getElementById("size-calc");
+    const maskSvg = document.getElementById("mask-svg");
+    const maskFit = document.getElementById("mask-fit");
+    const INCH = "\u2033";
+    const REF_CIRC = 22.5; // the dashed outline in the preview
+
+    // Bands are upper bounds in inches, taken from standard head circumference charts.
+    const sizeBands = [
+      { max: 18.9, label: "Toddler" },
+      { max: 20.4, label: "Child small" },
+      { max: 21.4, label: "Child medium" },
+      { max: 22.2, label: "Adult small" },
+      { max: 23.0, label: "Adult medium" },
+      { max: 24.0, label: "Adult large" },
+      { max: 99,   label: "Adult extra large" }
+    ];
+    const bandFor = (circ) => sizeBands.find((b) => circ <= b.max);
+
+    // Preview colours. The first entry in each list is the default. Edit freely.
+    const PICKS = {
+      shell:  [["Blue", "#1f4fd8"], ["Red", "#c62828"], ["Black", "#1b1f27"], ["Green", "#1e7a5c"], ["Yellow", "#e7b84e"], ["White", "#f1f1ee"]],
+      accent: [["Orange", "#ff6a1a"], ["Black", "#101820"], ["White", "#f4f4f0"], ["Gold", "#e7b84e"], ["Silver", "#b8c0c8"], ["Red", "#c62828"]],
+      lens:   [["Cyan", "#5ed1e6"], ["Black", "#0e1116"], ["Amber", "#ffb32b"], ["Mirror", "#cfd6dd"]]
+    };
+    const chosen = (key) => document.querySelector('input[name="pick-' + key + '"]:checked');
+
+    function updateMask() {
+      maskSvg.style.setProperty("--shell", chosen("shell").dataset.color);
+      maskSvg.style.setProperty("--accent", chosen("accent").dataset.color);
+      maskSvg.style.setProperty("--lens", chosen("lens").dataset.color);
+    }
+
+    Object.entries(PICKS).forEach(([key, list]) => {
+      const row = document.getElementById("swatches-" + key);
+      list.forEach(([name, hex], i) => {
+        const label = document.createElement("label");
+        label.className = "swatch";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "pick-" + key;
+        input.value = name;
+        input.dataset.color = hex;
+        input.checked = i === 0;
+        input.setAttribute("aria-label", name);
+        input.addEventListener("change", updateMask);
+        const dot = document.createElement("span");
+        dot.style.setProperty("--p", hex);
+        label.append(input, dot);
+        row.append(label);
+      });
+    });
+
+    document.getElementById("shuffle").addEventListener("click", () => {
+      Object.keys(PICKS).forEach((key) => {
+        const inputs = document.querySelectorAll('input[name="pick-' + key + '"]');
+        inputs[Math.floor(Math.random() * inputs.length)].checked = true;
+      });
+      updateMask();
+    });
+
+    function updateSize() {
+      const circ = parseFloat(sizeInput.value);
+      const band = bandFor(circ);
+      sizeValue.textContent = circ.toFixed(1) + INCH;
+      sizeBand.textContent = band.label;
+      sizeCalc.textContent = "Model diameter about " + (circ / Math.PI).toFixed(2) + INCH + ", plus clearance for hair and lining.";
+      sizeInput.setAttribute("aria-valuetext", circ.toFixed(1) + " inches, " + band.label);
+      maskFit.style.transform = "scale(" + (circ / REF_CIRC).toFixed(3) + ")";
+    }
+    sizeInput.addEventListener("input", updateSize);
+    updateMask();
+    updateSize();
+
+    document.getElementById("size-send").addEventListener("click", () => {
+      const circ = parseFloat(sizeInput.value);
+      document.getElementById("project-type").value = "Helmet";
+      document.getElementById("message").value =
+        "I would like a helmet printed to fit.\n\nHead circumference: " + circ.toFixed(1) + " inches (" + bandFor(circ).label + ")" +
+        "\nShell colour: " + chosen("shell").value + "\nTrim colour: " + chosen("accent").value + "\nVisor colour: " + chosen("lens").value +
+        "\nLining or strap fixings needed: ";
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => document.querySelector('#quote-form [name="name"]').focus({ preventScroll: true }), 400);
+    });
+
+    // ---- Quote form -------------------------------------------------------
+    const form = document.getElementById("quote-form");
+    const status = document.getElementById("form-status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (data.website) return; // honeypot: bots fill this in
+      if (!data.name || !data.email || !data.message || !form.email.checkValidity()) {
+        status.textContent = "Please add your name, a valid email and a few project details.";
+        return;
+      }
+
+      if (FORM_ENDPOINT) {
+        status.textContent = "Sending...";
+        try {
+          const res = await fetch(FORM_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify({ name: data.name, email: data.email, projectType: data["project-type"], message: data.message })
+          });
+          if (!res.ok) throw new Error("Bad response");
+          form.reset();
+          status.textContent = "Thanks, your enquiry is in. I will reply by email.";
+        } catch (err) {
+          status.textContent = "That did not send. Please email " + CONTACT_EMAIL + " instead.";
+        }
+        return;
+      }
+
+      const subject = "Quote request: " + data["project-type"];
+      const body = "Name: " + data.name + "\nEmail: " + data.email + "\nType: " + data["project-type"] + "\n\n" + data.message;
+      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      status.textContent = "Your email app should open with the details filled in. If it does not, email " + CONTACT_EMAIL + ".";
+    });
+  </script>
+</body>
+</html>
