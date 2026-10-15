@@ -178,9 +178,11 @@
     .sizing { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: start; }
     .sizer { padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); box-shadow: 0 0 0 1px rgba(47, 216, 240, .08), 0 24px 60px rgba(0, 0, 0, .4); }
     .mask-stage { display: grid; place-items: center; margin-bottom: 16px; padding: 12px; border-radius: 10px; background: #223351; }
-    .mask-svg { --shell: #1f4fd8; --accent: #ff6a1a; --lens: #5ed1e6; width: 100%; max-width: 340px; max-height: 50vh; height: auto; }
-    .c-shell { fill: var(--shell); } .c-accent { fill: var(--accent); } .c-lens { fill: var(--lens); } .s-accent { stroke: var(--accent); }
-    .mask-fit { transform-origin: 170px 340px; transition: transform .25s ease; }
+    .mask-svg { --shell: #cf2027; --accent: #14171c; --lens: #dfe3e6; width: 100%; max-width: 340px; max-height: 50vh; height: auto; }
+    .c-shell { fill: var(--shell); } .c-accent { fill: var(--accent); } .c-lens { fill: var(--lens); }
+    .c-shell, .c-accent, .c-lens { transition: fill .25s ease; }
+    /* Origin sits on the chin, so a bigger measurement grows the crown upwards. */
+    .mask-fit { transform-origin: 170px 358px; transition: transform .25s ease; }
     .picks { display: grid; gap: 10px; margin-bottom: 18px; }
     .pick { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
     .pick-label { width: 52px; font-size: 15px; font-weight: 700; }
@@ -617,36 +619,79 @@
         <div class="sizing">
           <div class="sizer">
             <div class="mask-stage">
-              <svg class="mask-svg" id="mask-svg" viewBox="0 0 340 380" role="img" aria-label="Helmet preview that grows and shrinks with the measurement">
+              <svg class="mask-svg" id="mask-svg" viewBox="0 0 340 400" role="img" aria-label="Helmet preview that grows and shrinks with the measurement">
                 <defs>
-                  <path id="shell" d="M170 70C100 70 80 128 82 190C84 245 104 292 126 318C138 334 202 334 214 318C236 292 256 245 258 190C260 128 240 70 170 70Z"/>
-                  <clipPath id="shell-clip"><use href="#shell"/></clipPath>
-                  <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/>
+                  <!-- shell -->
+                  <path id="shellPath" d="M170 52C114 52 74 98 68 164C63 222 76 278 106 320C122 343 146 357 170 357C194 357 218 343 234 320C264 278 277 222 272 164C266 98 226 52 170 52Z"/>
+                  <clipPath id="shellClip"><use href="#shellPath"/></clipPath>
+
+                  <!-- one eye panel and one lens; the right side is this mirrored -->
+                  <path id="eyePanelPath" d="M159 90L106 118Q93 125 91 140L83 198Q82 209 90 217L138 264Q147 272 153 263L157 250L160 96Q160 88 159 90Z"/>
+                  <path id="lensShape" d="M92 184Q119 168 148 190Q121 208 92 184Z" transform="rotate(10 120 190)"/>
+
+                  <!-- woven surface texture -->
+                  <pattern id="weave" width="6" height="6" patternUnits="userSpaceOnUse">
+                    <rect x=".4" y=".4" width="2.4" height="2.4" fill="rgba(0,0,0,.14)" stroke="rgba(0,0,0,.22)" stroke-width=".5"/>
+                    <rect x="3.4" y="3.4" width="2.4" height="2.4" fill="rgba(0,0,0,.14)" stroke="rgba(0,0,0,.22)" stroke-width=".5"/>
+                    <rect x="3.4" y=".4" width="2.4" height="2.4" fill="rgba(255,255,255,.06)"/>
+                    <rect x=".4" y="3.4" width="2.4" height="2.4" fill="rgba(255,255,255,.06)"/>
+                  </pattern>
+
+                  <!-- perforated lens mesh -->
+                  <pattern id="mesh" width="6" height="5.2" patternUnits="userSpaceOnUse">
+                    <circle cx="1.5" cy="1.3" r=".85" fill="#0b0f14" opacity=".7"/>
+                    <circle cx="4.5" cy="3.9" r=".85" fill="#0b0f14" opacity=".7"/>
+                  </pattern>
+
+                  <linearGradient id="shade" x1="0" y1="0" x2=".35" y2="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity=".16"/>
+                    <stop offset=".45" stop-color="#000" stop-opacity="0"/>
+                    <stop offset="1" stop-color="#000" stop-opacity=".38"/>
                   </linearGradient>
                 </defs>
-                <use href="#shell" fill="none" stroke="#8aa0bd" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+                <!-- fixed reference outline, adult medium. Does not scale. -->
+                <use href="#shellPath" fill="none" stroke="#8aa0bd" stroke-width="1.5" stroke-dasharray="5 5"/>
                 <g class="mask-fit" id="mask-fit">
-                  <rect class="c-accent" x="124" y="314" width="92" height="26" rx="6"/>
-                  <circle class="c-accent" cx="82" cy="204" r="15"/><circle class="c-accent" cx="258" cy="204" r="15"/>
-                  <use class="c-shell" href="#shell"/>
-                  <use href="#shell" fill="url(#shade)"/>
-                  <g clip-path="url(#shell-clip)" fill="none" class="s-accent" stroke-linecap="round">
-                    <path d="M170 70V140" stroke-width="12"/>
-                    <path d="M96 150Q170 128 244 150" stroke-width="7"/>
+                  <use class="c-shell" href="#shellPath"/>
+                  <use href="#shellPath" fill="url(#weave)"/>
+                  <g clip-path="url(#shellClip)">
+                    <ellipse cx="116" cy="140" rx="60" ry="84" fill="#fff" opacity=".10"/>
+                    <use href="#shellPath" fill="url(#shade)"/>
+                    <path d="M170 62V98" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M170 272V348" fill="none" stroke="rgba(0,0,0,.16)" stroke-width="2.5" stroke-linecap="round"/>
                   </g>
-                  <path class="c-lens s-accent" d="M98 172Q170 152 242 172L238 218Q170 238 102 218Z" stroke-width="6" stroke-linejoin="round"/>
-                  <path d="M112 176Q150 166 176 168L162 214Q135 218 116 212Z" fill="#fff" opacity=".22"/>
-                  <g class="s-accent" stroke-width="4" stroke-linecap="round"><path d="M148 262H192"/><path d="M152 274H188"/><path d="M156 286H184"/></g>
+
+                  <!-- left eye -->
+                  <g>
+                    <path d="M146 268C141 292 139 320 146 350" fill="none" stroke="rgba(0,0,0,.26)" stroke-width="2.5" stroke-linecap="round"/>
+                    <use href="#eyePanelPath" fill="rgba(0,0,0,.32)" transform="translate(0 3)"/>
+                    <use class="c-accent" href="#eyePanelPath"/>
+                    <use href="#eyePanelPath" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+                    <use class="c-lens" href="#lensShape"/>
+                    <use href="#lensShape" fill="url(#mesh)"/>
+                    <use href="#lensShape" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2.5"/>
+                  </g>
+
+                  <!-- right eye: same geometry, mirrored about the centre line -->
+                  <g transform="translate(340 0) scale(-1 1)">
+                    <path d="M146 268C141 292 139 320 146 350" fill="none" stroke="rgba(0,0,0,.26)" stroke-width="2.5" stroke-linecap="round"/>
+                    <use href="#eyePanelPath" fill="rgba(0,0,0,.32)" transform="translate(0 3)"/>
+                    <use class="c-accent" href="#eyePanelPath"/>
+                    <use href="#eyePanelPath" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+                    <use class="c-lens" href="#lensShape"/>
+                    <use href="#lensShape" fill="url(#mesh)"/>
+                    <use href="#lensShape" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2.5"/>
+                  </g>
                 </g>
-                <text x="170" y="372" text-anchor="middle" font-size="12" fill="#8aa0bd">Dashed outline: adult medium (22.5&Prime;)</text>
+                <text x="170" y="392" text-anchor="middle" font-size="12" fill="#8aa0bd">Dashed outline: adult medium (22.5&Prime;)</text>
               </svg>
             </div>
 
             <div class="picks" aria-label="Preview colours">
               <div class="pick" role="radiogroup" aria-labelledby="pk-shell"><span class="pick-label" id="pk-shell">Shell</span><div class="swatch-row" id="swatches-shell"></div></div>
-              <div class="pick" role="radiogroup" aria-labelledby="pk-accent"><span class="pick-label" id="pk-accent">Trim</span><div class="swatch-row" id="swatches-accent"></div></div>
-              <div class="pick" role="radiogroup" aria-labelledby="pk-lens"><span class="pick-label" id="pk-lens">Visor</span><div class="swatch-row" id="swatches-lens"></div></div>
+              <div class="pick" role="radiogroup" aria-labelledby="pk-accent"><span class="pick-label" id="pk-accent">Eyes</span><div class="swatch-row" id="swatches-accent"></div></div>
+              <div class="pick" role="radiogroup" aria-labelledby="pk-lens"><span class="pick-label" id="pk-lens">Lens</span><div class="swatch-row" id="swatches-lens"></div></div>
               <button class="shuffle" type="button" id="shuffle">Surprise me</button>
             </div>
 
@@ -978,9 +1023,9 @@
 
     // Preview colours. The first entry in each list is the default. Edit freely.
     const PICKS = {
-      shell:  [["Blue", "#1f4fd8"], ["Red", "#c62828"], ["Black", "#1b1f27"], ["Green", "#1e7a5c"], ["Yellow", "#e7b84e"], ["White", "#f1f1ee"]],
-      accent: [["Orange", "#ff6a1a"], ["Black", "#101820"], ["White", "#f4f4f0"], ["Gold", "#e7b84e"], ["Silver", "#b8c0c8"], ["Red", "#c62828"]],
-      lens:   [["Cyan", "#5ed1e6"], ["Black", "#0e1116"], ["Amber", "#ffb32b"], ["Mirror", "#cfd6dd"]]
+      shell:  [["Red", "#cf2027"], ["Crimson", "#8f1d24"], ["Blue", "#1f4fd8"], ["Black", "#1b1f27"], ["Green", "#1e7a5c"], ["Silver", "#b9c1c9"], ["Pink", "#e0729a"]],
+      accent: [["Black", "#14171c"], ["Charcoal", "#2b313b"], ["Red", "#cf2027"], ["Blue", "#1f4fd8"], ["White", "#f1f1ee"], ["Gold", "#c9a227"]],
+      lens:   [["Silver mesh", "#dfe3e6"], ["White mesh", "#f7f8f9"], ["Smoke", "#8d949c"], ["Amber", "#ffb32b"], ["Cyan", "#5ed1e6"], ["Black", "#0e1116"]]
     };
     const chosen = (key) => document.querySelector('input[name="pick-' + key + '"]:checked');
 
@@ -1036,7 +1081,7 @@
       document.getElementById("project-type").value = "Helmet";
       document.getElementById("message").value =
         "I would like a helmet printed to fit.\n\nHead circumference: " + circ.toFixed(1) + " inches (" + bandFor(circ).label + ")" +
-        "\nShell colour: " + chosen("shell").value + "\nTrim colour: " + chosen("accent").value + "\nVisor colour: " + chosen("lens").value +
+        "\nShell colour: " + chosen("shell").value + "\nEyes colour: " + chosen("accent").value + "\nLens colour: " + chosen("lens").value +
         "\nLining or strap fixings needed: ";
       document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
       setTimeout(() => document.querySelector('#quote-form [name="name"]').focus({ preventScroll: true }), 400);
